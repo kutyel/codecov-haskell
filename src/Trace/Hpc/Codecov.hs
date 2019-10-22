@@ -130,8 +130,5 @@ generateCodecovFromTix config = do
   return $ toCodecovJson converter $ mergeCoverageData testSuitesCoverages
   where
     excludedDirPatterns = excludedDirs config
-    testSuiteNames =
-      if combined config
-        then ["all"]
-        else testSuites config
+    testSuiteNames = testSuites config
     converter = defaultConverter
